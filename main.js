@@ -54,15 +54,35 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 4. Parallax effect for hero blobs (optional micro-animation)
+    // 4. Parallax effect for hero blobs and 'Giro' perfection
     window.addEventListener('mousemove', (e) => {
-        const x = e.clientX / window.innerWidth;
-        const y = e.clientY / window.innerHeight;
+        const x = (e.clientX / window.innerWidth) - 0.5;
+        const y = (e.clientY / window.innerHeight) - 0.5;
         
         const blobs = document.querySelectorAll('.blob');
         blobs.forEach((blob, index) => {
-            const speed = (index + 1) * 20;
+            const speed = (index + 1) * 30;
             blob.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+        });
+
+        // Perfecting the giro: slight rotation follow for the hero visual
+        const heroVisual = document.querySelector('.hero-visual');
+        if (heroVisual) {
+            heroVisual.style.transform = `translateY(-50%) rotate(${2 + x * 5}deg) scale(${1 + Math.abs(y) * 0.05})`;
+        }
+    });
+
+    // 5. Scroll-based rotation for a dynamic feel
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const cards = document.querySelectorAll('.service-card');
+        cards.forEach((card, index) => {
+            const speed = (index + 1) * 0.05;
+            const rotation = (scrolled * speed) % 2 - 1; // subtle oscillation
+            if (card.classList.contains('active')) {
+                // We don't want to override the hover transform, so we just use a CSS variable
+                card.style.setProperty('--scroll-rotation', `${rotation}deg`);
+            }
         });
     });
 });
