@@ -121,8 +121,14 @@ nav .container {
 }
 
 .hero-content {
-    max-width: 600px;
-    z-index: 2;
+    max-width: 650px;
+    position: relative;
+    z-index: 10;
+    background: var(--bg-dark);
+    padding: 3rem;
+    border: var(--brutalist-border);
+    border-radius: 16px;
+    box-shadow: var(--brutalist-shadow);
 }
 
 .hero h1 {
