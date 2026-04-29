@@ -188,6 +188,7 @@ nav .container {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: top center; /* Ensures the top of the split unit is never cropped */
 }
 
 /* Floating elements for visual flair */

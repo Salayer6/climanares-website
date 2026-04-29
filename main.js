@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Perfecting the giro: slight rotation follow for the hero visual
         const heroVisual = document.querySelector('.hero-visual');
         if (heroVisual) {
-            heroVisual.style.transform = `translateY(-50%) rotate(${2 + x * 5}deg) scale(${1 + Math.abs(y) * 0.05})`;
+            heroVisual.style.transform = `rotate(${2 + x * 5}deg) scale(${1 + Math.abs(y) * 0.05})`;
         }
     });
 
